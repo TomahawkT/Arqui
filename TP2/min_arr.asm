@@ -32,5 +32,5 @@ findMin:
 .end:
     ret
 SECTION .data
-numArray dd 5,7,4,1,1,9,8,-1
+numArray dd 5,7,4,1,1,9,8
 numArrayLen equ $-numArray
