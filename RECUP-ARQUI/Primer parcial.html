@@ -1,0 +1,2990 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Primer parcial</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="74cbf354-d216-445c-989e-9b0edf24af12" class="page sans"><header><h1 class="page-title">Primer parcial</h1></header><div class="page-body"><ul id="3c99f62b-b6ae-413d-9738-a15c28161cfb" class="toggle"><li><details open=""><summary>functions.c</summary><pre id="e451db8b-b82d-4ae7-8c33-8cacf5ed1208" class="code"><code>#define GCERR -2               // Error del getchar
+#define EOF -1                 // End of file
+#define STDIN  0               // FD Standard input
+#define STDOUT 1               // FD Standard output
+#define STDERR 2               // FD Standard error
+#define MAX_BUFF 128
+
+// flags para sys_open
+#define _O_RDONLY 0x0000       // Read only
+#define _O_WRONLY 0x0001       // Write only
+#define _O_RDWR   0x0002       // Read &amp; Write
+#define _O_CREAT  0x0040       // Create
+#define _O_TRUNC  0x0200       // ?
+#define _O_APPEND 0x0400       // Append
+
+#define IS_NUM(c)  ((c) &gt;= &#x27;0&#x27; &amp;&amp; (c)&lt;=&#x27;9&#x27;)
+#define IS_DIGIT(c) (((c) &gt;= &#x27;a&#x27; &amp;&amp; (c)&lt;=&#x27;z&#x27;) || ((c) &gt;= &#x27;A&#x27; &amp;&amp; (c)&lt;=&#x27;Z&#x27;))
+
+// flags de permisos sys_open
+#define S_IXUSR 00100          // owner, execute permission
+#define S_IWUSR 00200          // owner, write permission
+#define S_IRUSR 00400          // owner, read permission
+#define S_IRWX  00700          // owner, read, write, execute permission
+
+extern int sys_open(const char *pathname, int flags, int mode);
+extern int sys_write(int fd, void *buffer, int size);
+extern int sys_exit(int error);
+extern int sys_close(int fd);
+extern int sys_read(int fd, void *buf, int count);
+extern unsigned int sys_getpid();
+extern int sys_fork();
+extern long sys_gettime(long * tloc);
+
+// for time
+#define CLOCK_REALTIME 0
+typedef struct timespec {
+    long     sec;        /* seconds */
+    long     nsec;       /* nanoseconds */
+}timest;
+extern int sys_clock_gettime(int clockid, struct timespec * tp);
+
+int _strlen(const char * str);
+int _puts(const char* str);
+int _getchar(int fd);
+int num_length(int resultado);
+void num_to_str(char * char_num, int lg, int resultado);
+void print_num(long long num, int fd);
+int str_to_num(char * str, int longitud);
+void print_hour(long time);
+void print_date(long time);
+
+
+/*************************************************** Funciones de strings ****************************/
+
+ /***
+ *  Funcion que lee de entrada estandar una linea de hasta MAX_BUFF - 1 caracteres.
+ *
+ *  Argumento:
+ *    - char * buffer: puntero a la zona de memoria donde se almacenara el string ingresado.
+ *
+ *  Retorno:
+ *    - Cantidad de caracteres copiados al buffer.
+ ************************************ usa MAX_BUFF. STDIN, STDEER, sys_exit, sys_write, _getchar *******************************************
+ *
+ ***/
+int _getline(char * buffer){
+  int idx;
+  char c;
+
+  for(idx = 0 ; (idx&lt; MAX_BUFF ) &amp;&amp; (c=_getchar(STDIN))!=&#x27;\n&#x27; ; idx++){
+      buffer[idx] = c;
+  }
+
+  if(idx == MAX_BUFF){
+    char errmsg[] = &quot;La linea ingresada es demasiado larga \n&quot;;
+    sys_write(STDERR, errmsg , _strlen(errmsg));
+    sys_exit(-1);
+  }
+
+  buffer[idx] = 0;
+  return idx;
+}
+
+/***
+ *  Funcion que imprime en entrada estandar un string.
+ *
+ *  Argumento:
+ *    - const char* str: string a imprimir.
+ *
+ *  Retorno:
+ *    - mismo valor de retorno que sys_write: cantidad de caracteres leidos o un entero menor a 0 en caso de error.
+ ************************************ usa sys_write STDOUT *******************************************
+ *
+ ***/
+int _puts(const char* str) {
+    return sys_write(STDOUT, (void*) str, _strlen(str));
+}
+
+/***
+* Funcion que retorna la longitud de un string.
+
+* Argumento:
+* - const char * str:  puntero a la direccion de memoria donde se encuentra el string.
+*
+* Retorno:
+* - La longitud del string.
+***/
+int _strlen(const char * str){
+    int i=0;
+    while( *(str + (i++)) );
+    return i-1;
+}
+
+/***
+* Funcion que lee un unico caracter de un file descriptor especifico.
+*
+* Argumento:
+*  - int fd: file descriptor del que se quiere leer el caracter.
+*
+* Retorno:
+*  - En caso de error al leer el caracter, devuelve -2 (GCERR).
+*  - Si se termina el archivo devuelve -1 (EOF).
+*  - Sino, devuelve el caracter leido.
+*********** Usa sys_read y las constantes GCERR EOF *********************+
+***/
+int _getchar(int fd) {
+		char c;
+    int returnval = sys_read(fd, &amp;c, 1);
+
+    if ( returnval == 1)
+				return c;
+
+    if( returnval &lt; 0 )
+				return GCERR;
+
+		return EOF;
+}
+
+/***
+ * Funcion que transforma un entero a un string.
+ *
+ * Argumentos:
+ * - char * char_num: Puntero a la zona de memoria donde se dejara el string.
+ * - int digits: La cantidad de digitos del numero.
+ * - int num: Entero a transformar en string.
+ ***/
+void num_to_str(char * char_num, int digits, int num){
+    if(num &lt; 0){
+      num*=-1;
+    }
+
+    for(int i=digits-1 ; i&gt;=0 ; --i){
+      char_num[i] = num%10 + &#x27;0&#x27;;
+      num/=10;
+    }
+}
+
+/***
+* Funcion que cuenta la cantidad de apariciones del string almacenado del buffer en file descriptor
+*
+* Argumentos:
+* - char * buffer: puntero a la direccion de memoria del buffer.
+* - int longitud: longitud del buffer.
+* - int fd: file descriptor
+*
+* Retorno:
+* - la cantidad de apariciones del buffer en el file descriptor.
+*
+***/
+int KMPsearch(char * buffer,int longitud,int fd){
+
+    char next[longitud];
+    nextComputation(buffer,next);
+
+    int c;
+    int finish = ((c =_getchar(fd)) == EOF);
+    int counter = 0;
+    int pbuff = 0;
+
+    while (!finish){
+          if(c == buffer[pbuff]){
+              finish = ((c =_getchar(fd)) == EOF);
+              pbuff++;
+              if(pbuff == longitud){
+                   counter++;
+                   pbuff = next[pbuff-1];
+              }
+          }
+          else if(pbuff!=0){
+              pbuff = next[pbuff-1];
+          }
+          else{
+              finish = ((c =_getchar(fd)) == EOF);
+          }
+      }
+    return counter;
+}
+/***
+* Funcion que preprocesa el string para ofrecer una busqueda eficiente con el algoritmo KMP
+*
+* Argumentos:
+* - char * buffer: puntero a la direccion de memoria donde esta el string que se quiere preprocesar
+* - char * next: puntero a la zona de memoria donde estara la tabla de next
+*
+***/
+
+void nextComputation(char * buffer,char * next){
+  next[0] = 0;
+  int border = 0;
+  for (int rec = 1; buffer[rec]; rec++) {
+           while ((border &gt; 0) &amp;&amp; (buffer[border] != buffer[rec]))
+               border = next[border - 1];
+           if (buffer[border] == buffer[rec])
+               border++;
+           next[rec] = border;
+       }
+}
+
+/********************************************** Funciones de enteros *********************************/
+
+/***
+ * Funcion que calcula la cantidad de digitos de un entero.
+ *
+ * Argumento:
+ * - int num: El numero al que se le calculara la cantidad de digitos.
+ *
+ * Retorno:
+ * - La cantidad de digitos del numero.
+ ***/
+int num_length(int num){
+
+    if(num &lt; 0){
+      num*=-1;
+    }
+
+    int length = 0;
+    while(num){
+        length++;
+        num/=10;
+    }
+    return length;
+}
+
+/***
+ * Funcion que transforma un string a un entero.
+ *
+ * Argumentos:
+ * - char * str: Puntero al string que se convertira en un entero.
+ * - int longitud: Longitud del string.
+ *
+ * Retorno:
+ * - Transformacion del string a un int.
+ ***/
+
+int str_to_num(char * str, int longitud){
+    int neg = 0;
+
+    if(str[0] == &#x27;-&#x27;){
+      neg = 1;
+    }
+
+    int num = 0;
+
+    for(int i=neg ; i&lt;longitud ; i++){
+      num = num*10 + str[i] - &#x27;0&#x27;;
+    }
+
+    if(neg){
+      num*=-1;
+    }
+
+    return num;
+}
+
+/***
+* Funcion que imprime en fd, num.
+*
+* Argumento:
+*  - long long num: entero a imprimir en el file descriptor.
+*  - int fd: file descriptor a escribir.
+*********** Usa sys_write, num_length, num_to_str *********************
+*********** Si no usamos long long, poner int *************************
+***/
+void print_num(long long num, int fd){
+
+  if(num==0){
+    sys_write(fd, &quot;0&quot;, 1);
+    return;
+  }
+
+  int lg = num_length(num);
+
+  char char_num[lg];
+
+  num_to_str(char_num,lg,num);
+
+  if(num&lt;0){
+    sys_write(fd, &quot;-&quot;, 1);
+  }
+  sys_write(fd, char_num, lg);
+}
+
+/************************************************* Funciones de tiempo ***************************************/
+
+/*
+*                                                #define UTC -3
+*                                         #define SECS_DAY (60*60*24)
+*/
+
+
+/***
+* Funcion que chequea si un año es bisiesto.
+*
+* Argumento:
+* - int year: numero entero que representa el año a analizar.
+*
+* Retorno:
+* - 1 si el año recibido es bisiesto, o 0 si no.
+***/
+
+int leapYear(int year){
+  if (year % 400 == 0) {
+    return 1;
+ }
+ else if (year % 100 == 0) {
+    return 0;
+ }
+
+ else if (year % 4 == 0) {
+    return 1;
+ }
+  return 0;
+}
+
+/***
+* Funcion que calcula la hora actual del sistema.
+*
+* Argumento:
+* - long time: cantidad de segundos transcurridos desde EPOCH.
+************************** Usa sys_write y STDOUT ***********************************
+***/
+
+void print_hour(long time){
+
+    time += UTC * 3600;
+    int t = time % SECS_DAY;
+    char hour[] = {&#x27;0&#x27;,&#x27;0&#x27;,&#x27;:&#x27;,&#x27;0&#x27;,&#x27;0&#x27;,&#x27;:&#x27;,&#x27;0&#x27;,&#x27;0&#x27;};
+
+    int seg = t % 60;
+    int min = (t % 3600) / 60;
+    int h = t / 3600;
+
+    hour[0] += h / 10;
+    hour[1] += h % 10;
+    hour[3] += min / 10;
+    hour[4] += min % 10;
+    hour[6] += seg / 10;
+    hour[7] += seg % 10;
+
+    sys_write(STDOUT, &quot;hora: &quot;, 6);
+    sys_write(STDOUT, hour, 8);
+    sys_write(STDOUT, &quot;\n&quot;, 1);
+}
+
+/***
+  *  Funcion que imprime en pantalla la fecha actual.
+  *
+  *  Argumento:
+  *  - long time: cantidad de segundos transcurridos desde EPOCH.
+  ******************* Usa secs_day y stout ********************
+***/
+
+void print_date(long time){
+
+    // Cantidad de dias de cada mes.
+    // La primera fila es para no anos bisiesotos
+    // y la segunda para anos bisiesotos
+    int mdays[2][12] = {{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
+                        {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}};
+
+    // String con el formato a imprimir
+    char date[] = {&#x27;0&#x27;,&#x27;0&#x27;,&#x27;/&#x27;,&#x27;0&#x27;,&#x27;0&#x27;,&#x27;/&#x27;,&#x27;0&#x27;,&#x27;0&#x27;,&#x27;0&#x27;,&#x27;0&#x27;};
+
+    // Cantidad de dias desde epoch
+    int t = time/(SECS_DAY) + 1;;
+
+    int year = 1970;
+    int month = 1;
+
+    while( t &gt;= (365 + leapYear(year)) ){
+        t -= 365 + leapYear(year);
+        year++;
+    }
+
+    int leap = leapYear(year);
+    while( t &gt;= mdays[leap][month-1] ){
+        t -= mdays[leap][month-1];
+        month++;
+    }
+
+    // Completamos el string de fecha
+    date[0]+= t/10;
+    date[1]+= t%10;
+    date[3]+= month/10;
+    date[4]+= month%10;
+    date[6]+= year/1000;
+    date[7]+= (year%1000)/100;
+    date[8]+= (year%100)/10;
+    date[9]+= year%10;
+
+    sys_write(STDOUT, &quot;fecha: &quot;, 7);
+    sys_write(STDOUT, date, 10);
+    sys_write(STDOUT, &quot;\n&quot;, 1);
+}</code></pre></details></li></ul><p id="75de1b55-f8be-4349-85d2-aba0d52be520" class="">
+</p><hr id="cc892f07-4373-4117-a1cb-789fba0805a3"/><hr id="8a084a84-9593-4788-8d84-b2239a81ba42"/><h1 id="db80f721-cc21-4ea1-90f0-96d70f2a44bc" class="">2020</h1><ul id="0b350b8d-ee05-42ac-8ed8-9c5829007007" class="toggle"><li><details open=""><summary>Todos los temas</summary><p id="afefb62e-c9e9-4da3-93f6-a8d619af55fe" class="">Tema 1
+Objetivo:
+Su programa debe recibir dos números mediante lectura del teclado, realizar la suma de ambos e imprimir en la
+pantalla el resultado.
+</p><p id="a5a59a4b-ef0e-4bb0-9b3d-ab99bb7fa02a" class="">Tema 2
+Objetivo:
+Su programa debe desplegar en pantalla el dia y hora del sistema.
+</p><p id="497a2c61-b600-4eed-92f1-0fafae33a125" class="">Tema 3
+Objetivo:
+Su programa debe realizar un fork de forma tal que se creen un proceso hijo y tanto el padre como el hijo desplieguen
+en pantalla un mensaje identificatorio con su número de proceso.
+</p><p id="1044fd6c-cc19-4861-9d73-02ce6cb49a5a" class="">Tema 4
+Objetivo:
+Su programa debe realizar leer un string del teclado y guardarlo en un archivo
+</p><p id="03c7a383-4582-40cc-9c34-882f9a37647c" class="">Tema 5
+Objetivo:
+Su programa debe realizar leer un string de 10 caracteres de un archivo A y otro string del archivo B y guardar ambos
+strings en un archivo C
+</p><p id="223c38a7-72b7-4754-92ed-de155d0ea661" class="">Tema 6
+Objetivo:
+Su programa debe realizar leer un valor numérico de 3 posiciones de un archivo A y otro valor numérico de 3
+posiciones de un archivo B y guardar el valor producto en 6 posiciones en un archivo C
+</p><p id="7a7ba37b-163b-4a3e-be1b-f2062c0fa6cc" class="">Tema 7
+Objetivo:
+Su programa debe realizar leer un string con algunos caracteres ASCII minúsculas y desplegarlo en pantalla
+convirtiendo los caracteres a mayúsculas.
+</p><p id="7aaa55ec-bb75-41bb-836c-dcd971f81f59" class="">Tema 8
+Objetivo:Su programa debe ordenar un array de exactamente 10 valores de mayor a menor
+</p><p id="e13c11f3-a4e4-4754-af7d-1d84522272f1" class="">Tema 9
+Objetivo:
+Su programa debe leer diez números ingresados por pantalla y luego los despliegue en pantalla ordenados de menor a mayor.
+</p><p id="a295ba64-9b09-4096-821e-6548506effb7" class="">Tema 10
+Objetivo:
+<mark class="highlight-orange"><span style="border-bottom:0.05em solid"><strong>Su programa debe leer diez números ingresados por pantalla y luego despliegue el numero que se repite más veces .</strong></span></mark>
+</p><p id="c36224f0-fb96-41b7-a419-a81638fe5752" class="">Tema 11
+Objetivo:
+Su programa debe leer un string de 15 caracteres ASCII y lo despliegue por pantalla invirtiendo los caracteres o sea se vea a la izquierda el caracter ingresado a la derecha.
+</p><p id="3db33b22-9c40-4fe5-b4d9-27e12920c46a" class="">Tema 12
+Objetivo:
+Su programa debe leer un string del teclado y deberá buscar la cantidad de ocurrencias de ese string dentro de un archivo de texto que se deberá leer.
+</p><p id="c6a2f21b-5ca5-49e4-b053-df6853f82056" class="">Tema 13
+Objetivo:
+<mark class="highlight-orange"><span style="border-bottom:0.05em solid"><strong>Su programa debe leer del teclado 4 letreas recibidas como argumentos y deberá determinar cúal de esas 4 letras se repite más veces dentro de un archivo de texto que se debe</strong></span></mark></p></details></li></ul><h3 id="b9a0d7df-5f0c-4fbf-9204-7c24daf27cac" class="">Tema 2:</h3><ul id="32abb504-6961-4a32-a005-21e4f2ce58d0" class="toggle"><li><details open=""><summary>Su programa debe desplegar en pantalla el dia y hora del sistema.</summary><pre id="85ecc363-a133-4a5d-946c-6d5ec6a0b19c" class="code"><code>#define STDIN  0
+#define STDOUT 1
+#define STDERR 2
+
+#define UTC -3
+#define SECS_DAY (60*60*24)
+
+extern int sys_write(int fd, void *buffer, int size);
+extern int sys_exit(int error);
+extern long sys_gettime(long * tloc);
+
+
+void print_hour(long time);
+void print_date(long time);
+
+int main(int argc, char *argv[]) {
+
+  long time;
+
+  sys_gettime(&amp;time);
+
+  time += UTC * 3600;
+
+  print_hour(time);
+
+  print_date(time);
+
+  return 0;
+}
+
+/***
+* Funcion que calcula la hora actual del sistema.
+*
+* Argumento:
+* - long time: cantidad de segundos transcurridos desde EPOCH.
+*
+***/
+
+void print_hour(long time){
+
+    int t = time%SECS_DAY;
+    char hour[] = {&#x27;0&#x27;,&#x27;0&#x27;,&#x27;:&#x27;,&#x27;0&#x27;,&#x27;0&#x27;,&#x27;:&#x27;,&#x27;0&#x27;,&#x27;0&#x27;};
+
+    int seg = t%60;
+    int min = (t%3600)/60;
+    int h = t/3600;
+
+    hour[0] += h/10;
+    hour[1] += h%10;
+    hour[3] += min/10;
+    hour[4] += min%10;
+    hour[6] += seg/10;
+    hour[7] += seg%10;
+
+    sys_write(STDOUT, &quot;hora: &quot;, 6);
+    sys_write(STDOUT, hour, 8);
+    sys_write(STDOUT, &quot;\n&quot;, 1);
+}
+
+/***
+* Funcion que chequea si un año es bisiesto.
+*
+* Argumento:
+* - int year: numero entero que representa el año a analizar.
+*
+* Retorno:
+* - 1 si el año recibido es bisiesto, o 0 si no.
+***/
+
+int leapYear(int year){
+  if (year % 400 == 0) {
+    return 1;
+ }
+ else if (year % 100 == 0) {
+    return 0;
+ }
+
+ else if (year % 4 == 0) {
+    return 1;
+ }
+  return 0;
+}
+
+/***
+  *  Funcion que imprime en pantalla la fecha actual.
+  *
+  *  Argumento:
+  *  - long time: cantidad de segundos transcurridos desde EPOCH.
+  *
+***/
+
+void print_date(long time){
+
+    // Cantidad de dias de cada mes.
+    // La primera fila es para no anos bisiesotos
+    // y la segunda para anos bisiestos
+    int mdays[2][12] = {{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
+                        {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}};
+
+    // String con el formato a imprimir
+    char date[] = {&#x27;0&#x27;,&#x27;0&#x27;,&#x27;/&#x27;,&#x27;0&#x27;,&#x27;0&#x27;,&#x27;/&#x27;,&#x27;0&#x27;,&#x27;0&#x27;,&#x27;0&#x27;,&#x27;0&#x27;};
+
+    // Cantidad de dias desde epoch
+    int t = time/(SECS_DAY) + 1;
+
+    int year = 1970;
+    int month = 1;
+
+    while( t &gt;= (365 + leapYear(year)) ){
+        t -= 365 + leapYear(year);
+        year++;
+    }
+
+    int leap = leapYear(year);
+    while( t &gt;= mdays[leap][month-1] ){
+        t -= mdays[leap][month-1];
+        month++;
+    }
+
+    // Completamos el string de fecha
+    date[0]+= t/10;
+    date[1]+= t%10;
+    date[3]+= month/10;
+    date[4]+= month%10;
+    date[6]+= year/1000;
+    date[7]+= (year%1000)/100;
+    date[8]+= (year%100)/10;
+    date[9]+= year%10;
+
+    sys_write(STDOUT, &quot;fecha: &quot;, 7);
+    sys_write(STDOUT, date, 10);
+    sys_write(STDOUT, &quot;\n&quot;, 1);
+}</code></pre></details></li></ul><p id="2c2f4eb8-7785-4bd9-a47d-ff558a0cc03c" class="">
+</p><h3 id="5c41ee78-fb32-4d69-94fa-108657bdeaee" class="">Tema 9:</h3><ul id="7ebf5c4d-18e9-4e20-a423-69801c3090ec" class="toggle"><li><details open=""><summary>Su programa debe leer diez números ingresados por pantalla y luego los despliegue en pantalla ordenados de menor a mayor.</summary><pre id="14ea7ff1-a484-47d4-94e5-fba5e3e58b26" class="code"><code>#define GCERR -2               // Error del getchar
+#define EOF -1                 // End of file
+#define STDIN  0               // FD Standard input
+#define STDOUT 1               // FD Standard output
+#define STDERR 2               // FD Standard error
+
+
+extern int sys_write(int fd, void *buffer, int size);
+extern int sys_exit(int error);
+extern int sys_read(int fd, void *buf, int count);
+
+int _getchar(int fd);
+int _strlen(const char * str);
+void print_num(int num, int fd);
+
+
+int main(int argc, char *argv[]) {
+
+  char msg[] = &quot;Ingrese 10 numeros \n&quot;;
+  sys_write(STDIN, msg , _strlen(msg));
+
+  int c;
+  int cantNum = 0;  //Contador de numeros, indice del vector
+  int vec[10];      // Arreglo para almacenar los 10 numeros ingresados
+  int num = 0;
+  int inNum = 0;    // Flag para indicar si estamos en un numero (por si hay mas de un caracter separador)
+  int neg = 0;      // 1 si el nro es negtivo, 2 si el proximo nro es negativo
+
+  while( (cantNum&lt;10) &amp;&amp; ((c=_getchar(STDIN)) &gt; 0) ){
+
+    if( c &gt;= &#x27;0&#x27; &amp;&amp; c &lt;= &#x27;9&#x27; ){
+      inNum = 1;
+      num = num * 10 + c - &#x27;0&#x27;;
+    }
+    else if(!inNum &amp;&amp; c == &#x27;-&#x27;){
+        neg = 1;
+    }
+    else if(inNum){
+      vec[cantNum++] = neg ? (num*-1) : num ;
+      num = inNum = neg = 0;
+    }
+    else{
+      neg = 0;
+    }
+  }
+
+  // Vaciamos el buffer en caso de que el usuario haya ingresado datos de mas
+  if(c!=&#x27;\n&#x27; &amp;&amp; c &gt; 0)
+    while((c=_getchar(STDIN))!=&#x27;\n&#x27;);
+
+
+  if(c==GCERR){
+    char errmsg[] = &quot;Se produjo un error al intentar leer los numeros\n&quot;;
+    sys_write(STDERR, errmsg , _strlen(errmsg));
+    sys_exit(GCERR);
+  }
+
+  for(int i=0 ; i&lt;10 ; ++i){
+    int min = i;  // indice del minimo valor
+    for (int j=i+1 ; j&lt;10 ; ++j){
+        if(vec[j] &lt; vec[min]){
+           min = j;
+        }
+    }
+    if(min!=i){
+      int aux = vec[min];
+      vec[min]= vec[i];
+      vec[i] = aux;
+    }
+  }
+
+  for(int i=0 ; i&lt;10 ; ++i){
+    print_num(vec[i],STDIN);
+    sys_write(STDERR,&quot; &quot; , 1);
+  }
+
+  return 0;
+}
+
+
+
+/***
+* Funcion que retorna la longitud de un string.
+
+* Argumento:
+* - const char * str:  puntero a la direccion de memoria donde se encuentra el string.
+*
+* Retorno:
+* - La longitud del string.
+***/
+int _strlen(const char * str){
+    int i=0;
+    while( *(str + (i++)) );
+    return i-1;
+}
+
+/***
+* Funcion que lee un unico caracter de un file descriptor especifico.
+*
+* Argumento:
+*  - int fd: file descriptor del que se quiere leer el caracter.
+*
+* Retorno:
+*  - En caso de error al leer el caracter, devuelve -2 (GCERR).
+*  - Si se termina el archivo devuelve -1 (EOF).
+*  - Sino, devuelve el caracter leido.
+*********** Usa sys_read y las constantes GCERR EOF *********************+
+***/
+int _getchar(int fd) {
+		char c;
+    int returnval = sys_read(fd, &amp;c, 1);
+
+    if ( returnval == 1)
+				return c;
+
+    if( returnval &lt; 0 )
+				return GCERR;
+
+		return EOF;
+}
+
+
+/***
+ * Funcion que calcula la cantidad de digitos de un entero.
+ *
+ * Argumento:
+ * - int num: El numero al que se le calculara la cantidad de digitos.
+ *
+ * Retorno:
+ * - La cantidad de digitos del numero.
+ ***/
+int num_length(int num){
+
+    if(num &lt; 0){
+      num*=-1;
+    }
+
+    int length = 0;
+    while(num){
+        length++;
+        num/=10;
+    }
+    return length;
+}
+
+/***
+ * Funcion que transforma un entero a un string.
+ *
+ * Argumentos:
+ * - char * char_num: Puntero a la zona de memoria donde se dejara el string.
+ * - int digits: La cantidad de digitos del numero.
+ * - int num: Entero a transformar en string.
+ ***/
+void num_to_str(char * char_num, int digits, int num){
+    if(num &lt; 0){
+      num*=-1;
+    }
+
+    for(int i=digits-1 ; i&gt;=0 ; --i){
+      char_num[i] = num%10 + &#x27;0&#x27;;
+      num/=10;
+    }
+}
+
+/***
+* Funcion que imprime en fd, num.
+*
+* Argumento:
+*  - long long num: entero a imprimir en el file descriptor.
+*  - int fd: file descriptor a escribir.
+***/
+void print_num(int num, int fd){
+
+  if(num==0){
+    sys_write(fd, &quot;0&quot;, 1);
+    return;
+  }
+
+  int lg = num_length(num);
+
+  char char_num[lg];
+
+  num_to_str(char_num,lg,num);
+
+  if(num&lt;0){
+    sys_write(fd, &quot;-&quot;, 1);
+  }
+  sys_write(fd, char_num, lg);
+}</code></pre></details></li></ul><h3 id="93e1152d-0a43-4c63-80c7-4b36e591cfb9" class="">Tema 10:</h3><ul id="98ae6050-3291-4448-8fea-f71cfd1cad18" class="toggle"><li><details open=""><summary>Su programa debe realizar leer un string de 10 caracteres de una archivo A y otro string del archivo B y guardar ambos strings en un archivo C</summary><pre id="b0f8c3d0-6f8d-4f28-9d01-e9f13bbabcc7" class="code"><code>#define GCERR -2               // Error del getchar
+#define EOF -1                 // End of file
+#define STDIN  0               // FD Standard input
+#define STDOUT 1               // FD Standard output
+#define STDERR 2               // FD Standard error
+
+// flags para sys_open
+#define _O_RDONLY 0x0000       // Read only
+#define _O_WRONLY 0x0001       // Write only
+#define _O_RDWR   0x0002       // Read &amp; Write
+#define _O_CREAT  0x0040       // Create
+
+// flags de permisos sys_open
+#define S_IXUSR 00100          // owner, execute permission
+#define S_IWUSR 00200          // owner, write permission
+#define S_IRUSR 00400          // owner, read permission
+#define S_IRWX  00700          // owner, read, write, execute permission
+
+extern int sys_open(const char *pathname, int flags, int mode);
+extern int sys_write(int fd, void *buffer, int size);
+extern int sys_exit(int error);
+extern int sys_close(int fd);
+extern int sys_read(int fd, void *buf, int count);
+
+int _strlen(const char * str);
+int _getchar(int fd);
+
+int main(int argc, char *argv[]) {
+
+  int fdA = sys_open(&quot;A.txt&quot;,_O_RDWR, 0);
+	if(fdA &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo abrir el archivo A\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fdA);
+	}
+
+  int fdB = sys_open(&quot;B.txt&quot;,_O_RDWR, 0);
+	if(fdB &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo abrir el archivo B\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fdB);
+	}
+
+  int fdC = sys_open(&quot;C.txt&quot;,_O_RDWR|_O_CREAT, S_IRWX);
+	if(fdC &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo crear el archivo C\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fdC);
+	}
+
+  char stringA[10];
+  int valret = sys_read(fdA, stringA, 10);
+  if(valret &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo leer el archivo A\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(valret);
+	}
+
+  sys_write(fdC, stringA, 10);
+
+  int c;
+  while( (c = _getchar(fdB)) &gt; 0){
+      sys_write(fdC, &amp;c, 1);
+  }
+
+  if(c==GCERR){
+    char errmsg[] = &quot;Error al leer los datos del archivo C\n&quot;;
+    sys_write(STDERR, errmsg , _strlen(errmsg));
+    sys_exit(GCERR);
+  }
+
+  sys_close(fdA);
+  sys_close(fdB);
+  sys_close(fdC);
+
+	return 0;
+}
+
+/***
+* Funcion que retorna la longitud de un string.
+
+* Argumento:
+* - const char * str:  puntero a la direccion de memoria donde se encuentra el string.
+*
+* Retorno:
+* - La longitud del string.
+***/
+int _strlen(const char * str){
+    int i=0;
+    while( *(str + (i++)) );
+    return i-1;
+}
+
+/***
+* Funcion que lee un unico caracter de un file descriptor especifico.
+*
+* Argumento:
+*  - int fd: file descriptor del que se quiere leer el caracter.
+*
+* Retorno:
+*  - En caso de error al leer el caracter, devuelve -2 (GCERR).
+*  - Si se termina el archivo devuelve -1 (EOF).
+*  - Sino, devuelve el caracter leido.
+***/
+int _getchar(int fd) {
+		char c;
+    int returnval = sys_read(fd, &amp;c, 1);
+
+    if ( returnval == 1)
+				return c;
+
+    if( returnval &lt; 0 )
+				return GCERR;
+
+		return EOF;
+}</code></pre></details></li></ul><p id="85fc9720-9380-46a2-a73a-fb01f621f62b" class="">
+</p><h3 id="f47da053-00ba-466d-b506-b22cd3e7b462" class="">Tema 12:</h3><ul id="a5ad8137-1bcf-4734-a68c-3234ff4b2273" class="toggle"><li><details open=""><summary>Su programa debe realizar leer un valor numérico de 3 posiciones de un archivo A y otro valor numérico de 3 posiciones de un archivo B y guardar el valor producto en 6 posiciones en un archivo C.</summary><pre id="917a5ac6-de84-42ef-8510-df56724d08ad" class="code"><code>#define GCERR -2               // Error del getchar
+#define EOF -1                 // End of file
+#define STDIN  0               // FD Standard input
+#define STDOUT 1               // FD Standard output
+#define STDERR 2               // FD Standard error
+
+// flags para sys_open
+#define _O_RDONLY 0x0000       // Read only
+#define _O_WRONLY 0x0001       // Write only
+#define _O_RDWR   0x0002       // Read &amp; Write
+#define _O_CREAT  0x0040       // Create
+
+// flags de permisos sys_open
+#define S_IXUSR 00100          // owner, execute permission
+#define S_IWUSR 00200          // owner, write permission
+#define S_IRUSR 00400          // owner, read permission
+#define S_IRWX  00700          // owner, read, write, execute permission
+
+extern int sys_open(const char *pathname, int flags, int mode);
+extern int sys_write(int fd, void *buffer, int size);
+extern int sys_exit(int error);
+extern int sys_close(int fd);
+extern int sys_read(int fd, void *buf, int count);
+
+int _strlen(const char * str);
+int _getchar(int fd);
+void print_num(int num, int fd);
+int str_to_num(char * str, int longitud);
+int num_length(int num);
+
+int main(int argc, char *argv[]) {
+
+  int fdA = sys_open(&quot;A.txt&quot;,_O_RDWR, 0);
+	if(fdA &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo abrir el archivo A\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fdA);
+	}
+
+  int fdB = sys_open(&quot;B.txt&quot;,_O_RDWR, 0);
+	if(fdB &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo abrir el archivo B\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fdB);
+	}
+
+  int fdC = sys_open(&quot;C.txt&quot;,_O_RDWR|_O_CREAT, S_IRWX);
+	if(fdC &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo crear el archivo C\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fdC);
+	}
+
+  char stringA[3];
+  int valret = sys_read(fdA, stringA, 3);
+  if(valret &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo leer el archivo A\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(valret);
+	}
+
+  char stringB[3];
+  valret = sys_read(fdB, stringB, 3);
+  if(valret &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo leer el archivo A\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(valret);
+	}
+
+  int numA = str_to_num(stringA, 3);
+  int numB = str_to_num(stringB, 3);
+
+  print_num(numA*numB,fdC);
+
+  sys_close(fdA);
+  sys_close(fdB);
+  sys_close(fdC);
+
+	return 0;
+}
+
+/***
+* Funcion que retorna la longitud de un string.
+
+* Argumento:
+* - const char * str:  puntero a la direccion de memoria donde se encuentra el string.
+*
+* Retorno:
+* - La longitud del string.
+***/
+int _strlen(const char * str){
+    int i=0;
+    while( *(str + (i++)) );
+    return i-1;
+}
+
+/***
+* Funcion que lee un unico caracter de un file descriptor especifico.
+*
+* Argumento:
+*  - int fd: file descriptor del que se quiere leer el caracter.
+*
+* Retorno:
+*  - En caso de error al leer el caracter, devuelve -2 (GCERR).
+*  - Si se termina el archivo devuelve -1 (EOF).
+*  - Sino, devuelve el caracter leido.
+***/
+int _getchar(int fd) {
+		char c;
+    int returnval = sys_read(fd, &amp;c, 1);
+
+    if ( returnval == 1)
+				return c;
+
+    if( returnval &lt; 0 )
+				return GCERR;
+
+		return EOF;
+}
+
+/***
+ * Funcion que transforma un string a un entero.
+ *
+ * Argumentos:
+ * - char * str: Puntero al string que se convertira en un entero.
+ * - int longitud: Longitud del string.
+ *
+ * Retorno:
+ * - Transformacion del string a un int.
+ ***/
+
+int str_to_num(char * str, int longitud){
+    int neg = 0;
+
+    if(str[0] == &#x27;-&#x27;){
+      neg = 1;
+    }
+
+    int num = 0;
+
+    for(int i=neg ; i&lt;longitud ; i++){
+      num = num*10 + str[i] - &#x27;0&#x27;;
+    }
+
+    if(neg){
+      num*=-1;
+    }
+
+    return num;
+}
+
+/***
+ * Funcion que transforma un entero a un string.
+ *
+ * Argumentos:
+ * - char * char_num: Puntero a la zona de memoria donde se dejara el string.
+ * - int digits: La cantidad de digitos del numero.
+ * - int num: Entero a transformar en string.
+ ***/
+void num_to_str(char * char_num, int digits, int num){
+    if(num &lt; 0){
+      num*=-1;
+    }
+
+    for(int i=digits-1 ; i&gt;=0 ; --i){
+      char_num[i] = num%10 + &#x27;0&#x27;;
+      num/=10;
+    }
+}
+
+/***
+* Funcion que imprime en fd, num.
+*
+* Argumento:
+*  - long long num: entero a imprimir en el file descriptor.
+*  - int fd: file descriptor a escribir.
+***/
+void print_num(int num, int fd){
+
+  if(num==0){
+    sys_write(fd, &quot;0&quot;, 1);
+    return;
+  }
+
+  int lg = num_length(num);
+
+  char char_num[lg];
+
+  num_to_str(char_num,lg,num);
+
+  if(num&lt;0){
+    sys_write(fd, &quot;-&quot;, 1);
+  }
+  sys_write(fd, char_num, lg);
+}
+
+/***
+ * Funcion que calcula la cantidad de digitos de un entero.
+ *
+ * Argumento:
+ * - int num: El numero al que se le calculara la cantidad de digitos.
+ *
+ * Retorno:
+ * - La cantidad de digitos del numero.
+ ***/
+int num_length(int num){
+
+    if(num &lt; 0){
+      num*=-1;
+    }
+
+    int length = 0;
+    while(num){
+        length++;
+        num/=10;
+    }
+    return length;
+}</code></pre></details></li></ul><p id="67479399-ae9d-4536-a14d-f0a31d1f5003" class="">
+</p><h3 id="f0ec6897-67ea-4681-8d5e-44e6f8d66930" class="">Tema 17 (lo hicimos pero no lo chequee con la nueva lib):</h3><ul id="a8b2dc08-cb8d-4a38-800a-3400bd8a0fda" class="toggle"><li><details open=""><summary>Su programa debe leer un string de 15 caracteres ASCII y lo despliegue por pantalla invirtiendo los caracteres o sea se vea a la izquierda el caracter ingresado a la derecha.</summary></details></li></ul><p id="2ede95a9-81e3-4f11-a350-14cc8c0e7c83" class="">
+</p><h3 id="5823334f-22f1-4209-9197-b3493d7b2b7c" class="">Tema 20 (KMP):</h3><ul id="f2cb0919-5f8f-425d-a823-8490c310b3ee" class="toggle"><li><details open=""><summary>Su programa debe leer un string del teclado y deberá buscar la cantidad de ocurrencias de ese string dentro de un archivo de texto que se deberá leer</summary><pre id="6f85d504-47ea-4604-86de-e7cb3ee3be5b" class="code"><code>#define GCERR -2               // Error del getchar
+#define EOF -1                 // End of file
+#define STDIN  0               // FD Standard input
+#define STDOUT 1               // FD Standard output
+#define STDERR 2               // FD Standard error
+
+// flags para sys_open
+#define _O_RDONLY 0x0000       // Read only
+#define _O_WRONLY 0x0001       // Write only
+#define _O_RDWR   0x0002       // Read &amp; Write
+
+#define MAX_BUFF 128
+
+extern int sys_open(const char *pathname, int flags, int mode);
+extern int sys_write(int fd, void *buffer, int size);
+extern int sys_exit(int error);
+extern int sys_close(int fd);
+extern int sys_read(int fd, void *buf, int count);
+
+
+int _strlen(const char * str);
+int _getchar(int fd);
+int _getline(char * buffer);
+void nextComputation(char * buffer,char * next);
+int KMPsearch(char * buffer,int longitud,int fd);
+void print_num(int num, int fd);
+
+
+int main(int argc, char *argv[]) {
+
+
+  char buffer[MAX_BUFF];
+  int buff_len = _getline(buffer);
+
+  //Abrimos el archivo en el que queremos buscar
+  int fd = sys_open(&quot;data.txt&quot;,_O_RDWR, 0);
+	if(fd &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo abrir el archivo data\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fd);
+	}
+
+  int count = KMPsearch(buffer, buff_len, fd);
+
+  char msg[] = &quot;La cantidad de apariciones es &quot;;
+  sys_write(STDIN, msg , _strlen(msg));
+  print_num(count,STDIN);
+  sys_write(STDIN, &quot;\n&quot; , 1);
+
+  sys_close(fd);
+
+	return 0;
+}
+
+/***
+* Funcion que retorna la longitud de un string.
+
+* Argumento:
+* - const char * str:  puntero a la direccion de memoria donde se encuentra el string.
+*
+* Retorno:
+* - La longitud del string.
+***/
+int _strlen(const char * str){
+    int i=0;
+    while( *(str + (i++)) );
+    return i-1;
+}
+
+/***
+* Funcion que lee un unico caracter de un file descriptor especifico.
+*
+* Argumento:
+*  - int fd: file descriptor del que se quiere leer el caracter.
+*
+* Retorno:
+*  - En caso de error al leer el caracter, devuelve -2 (GCERR).
+*  - Si se termina el archivo devuelve -1 (EOF).
+*  - Sino, devuelve el caracter leido.
+***/
+int _getchar(int fd) {
+		char c;
+    int returnval = sys_read(fd, &amp;c, 1);
+
+    if ( returnval == 1)
+				return c;
+
+    if( returnval &lt; 0 )
+				return GCERR;
+
+		return EOF;
+}
+
+/***
+*  Funcion que lee de entrada estandar una linea de hasta MAX_BUFF - 1 caracteres.
+*
+*  Argumento:
+*    - char * buffer: puntero a la zona de memoria donde se almacenara el string ingresado.
+*
+*  Retorno:
+*    - Cantidad de caracteres copiados al buffer.
+************************************ usa MAX_BUFF. STDIN, STDEER, sys_exit, sys_write, _getchar *******************************************
+*
+***/
+
+int _getline(char * buffer){
+ int idx;
+ char c;
+
+ for(idx = 0 ; (idx&lt; MAX_BUFF ) &amp;&amp; (c=_getchar(STDIN))!=&#x27;\n&#x27; ; idx++){
+     buffer[idx] = c;
+ }
+
+ if(idx == MAX_BUFF){
+   char errmsg[] = &quot;La linea ingresada es demasiado larga \n&quot;;
+   sys_write(STDERR, errmsg , _strlen(errmsg));
+   sys_exit(-1);
+ }
+
+ buffer[idx] = 0;
+ return idx;
+}
+
+/***
+* Funcion que cuenta la cantidad de apariciones del string almacenado del buffer en file descriptor
+*
+* Argumentos:
+* - char * buffer: puntero a la direccion de memoria del buffer.
+* - int longitud: longitud del buffer.
+* - int fd: file descriptor
+*
+* Retorno:
+* - la cantidad de apariciones del buffer en el file descriptor.
+*
+***/
+int KMPsearch(char * buffer,int longitud,int fd){
+
+    char next[longitud];
+    nextComputation(buffer,next);
+
+    int c;
+    int finish = ((c =_getchar(fd)) == EOF);
+    int counter = 0;
+    int pbuff = 0;
+
+    while (!finish){
+          if(c == buffer[pbuff]){
+              finish = ((c =_getchar(fd)) == EOF);
+              pbuff++;
+              if(pbuff == longitud){
+                   counter++;
+                   pbuff = next[pbuff-1];
+              }
+          }
+          else if(pbuff!=0){
+              pbuff = next[pbuff-1];
+          }
+          else{
+              finish = ((c =_getchar(fd)) == EOF);
+          }
+      }
+    return counter;
+}
+
+
+/***
+* Funcion que preprocesa el string para ofrecer una busqueda eficiente con el algoritmo KMP
+*
+* Argumentos:
+* - char * buffer: puntero a la direccion de memoria donde esta el string que se quiere preprocesar
+* - char * next: puntero a la zona de memoria donde estara la tabla de next
+*
+***/
+void nextComputation(char * buffer,char * next){
+  next[0] = 0;     // Always. There&#x27;s no proper border.
+  int border = 0;  // Length of the current border
+  for (int rec = 1; buffer[rec]; rec++) {
+           while ((border &gt; 0) &amp;&amp; (buffer[border] != buffer[rec]))
+               border = next[border - 1];     // Improving previous computation
+           if (buffer[border] == buffer[rec])
+               border++;
+           // else border = 0;  // redundant
+           next[rec] = border;
+       }
+}
+
+/***
+ * Funcion que transforma un entero a un string.
+ *
+ * Argumentos:
+ * - char * char_num: Puntero a la zona de memoria donde se dejara el string.
+ * - int digits: La cantidad de digitos del numero.
+ * - int num: Entero a transformar en string.
+ ***/
+void num_to_str(char * char_num, int digits, int num){
+    if(num &lt; 0){
+      num*=-1;
+    }
+
+    for(int i=digits-1 ; i&gt;=0 ; --i){
+      char_num[i] = num%10 + &#x27;0&#x27;;
+      num/=10;
+    }
+}
+
+/***
+ * Funcion que calcula la cantidad de digitos de un entero.
+ *
+ * Argumento:
+ * - int num: El numero al que se le calculara la cantidad de digitos.
+ *
+ * Retorno:
+ * - La cantidad de digitos del numero.
+ ***/
+int num_length(int num){
+
+    if(num &lt; 0){
+      num*=-1;
+    }
+
+    int length = 0;
+    while(num){
+        length++;
+        num/=10;
+    }
+    return length;
+}
+
+
+/***
+* Funcion que imprime en fd, num.
+*
+* Argumento:
+*  - long long num: entero a imprimir en el file descriptor.
+*  - int fd: file descriptor a escribir.
+*********** Usa sys_write, num_length, num_to_str *********************
+*********** Si no usamos long long, poner int *************************
+***/
+void print_num(int num, int fd){
+
+  if(num==0){
+    sys_write(fd, &quot;0&quot;, 1);
+    return;
+  }
+
+  int lg = num_length(num);
+
+  char char_num[lg];
+
+  num_to_str(char_num,lg,num);
+
+  if(num&lt;0){
+    sys_write(fd, &quot;-&quot;, 1);
+  }
+  sys_write(fd, char_num, lg);
+}</code></pre></details></li></ul><p id="282285f9-ab5a-4d5c-a662-03e3465bb7e3" class="">
+</p><hr id="d456b00e-abe3-4a94-9e88-c799d156cb6a"/><hr id="28f0e58a-fc6a-46ff-a67a-5db4450e9b86"/><p id="4c399017-0ab9-4729-adad-2a92223e13ad" class="">
+</p><h1 id="d0e70480-9a95-4238-afba-b4e5b04adb25" class="">2021</h1><ul id="504e6654-6bbe-4add-8fe7-e611bbaf2054" class="toggle"><li><details open=""><summary>Todos los temas</summary><p id="5535e98a-3695-4ef9-a4a0-bd61324a1a9b" class=""><span style="border-bottom:0.05em solid"><strong>Tema 1:</strong></span></p><p id="7ec910e0-86d0-4126-a4dc-2ff566d721af" class="">Su programa deberá leer de un archivo una expresión algebraica compuesta por 5 números naturales separados por signos de suma o resta . La expresión finalizara por el signo =</p><p id="2fa06075-6cd3-4ccb-bd74-9ef557504c1c" class="">El programa deberá calcular la expresión y desplegar su resultado por salida estándard.</p><p id="f1fb9c6f-a062-425a-bab7-7d22199a1fc3" class=""><span style="border-bottom:0.05em solid"><strong>Tema 10:</strong></span></p><p id="a46c8b73-c80e-41e5-8763-7d5d653f4a17" class="">Su programa deberá leer un archivo DatosA.txt que contendrá una serie de números separados por blancos que pueden ser almacenados en 32 bits</p><p id="781fa33c-4ebe-4f39-b7bf-d5e2b934fbe4" class="">El programa almacenará ese numero en memoria de stack en 4 bytes.</p><p id="eff803cd-7ae9-4e1a-9085-23e6ecb6c8ed" class="">El programa deberá desplegar por salida estándard el contenido hexadecimal de las posiciones de memoria donde se almacenó ese número y también el contenido hexadecimal de la dirección de memoria usada.</p><p id="30348a53-b4ec-48f7-9432-5c22a1f17797" class=""><span style="border-bottom:0.05em solid"><strong>Tema 11:</strong></span></p><p id="e80428a6-e773-450e-beeb-0622890f4c39" class="">Su programa debe leer un string de caracteres desde el teclado y luego buscará cuantas ocurrencias hay de ese strnig dentro de un archivo de texto Datos.txt .Deberá detectar las ocurrencias independientemente de si el texto está en mayúsculas o minúsculas</p><p id="d0b6856d-0ebd-4ea8-b0fd-c8a2b71ab48e" class=""><span style="border-bottom:0.05em solid"><strong>Tema 12:</strong></span></p><p id="30825672-13ec-42bd-99af-a6d90ac1c1f1" class="">Su programa deberá leer una secuencia de números de 5 posiciones numéricas almacenadas en un archivo DatosA.txt separados por blancos y deberá generar un segundo archivo DatosB.txt. donde los números estén en el orden inverso al leido.Solo puede usar el stack para almacenar transitoriamente los números leidos.</p><p id="9a9e44d3-47f6-4f41-b5ae-3cb918d02aa2" class=""><span style="border-bottom:0.05em solid"><strong>Tema 15:</strong></span></p><p id="c8562eda-c73d-4017-a855-817bfc272c71" class="">Su programa deberá leer de un archivo DatosA.txt una secuencia de 10000 números almacenados en forma de 5 caracteres numéricos. El programa deberá calcular la suma y deberá darnos el tiempo consumido en el proceso.</p><p id="cbe9b16d-0f82-4f47-81e4-b20a627e2992" class=""><span style="border-bottom:0.05em solid"><strong>Tema 16:</strong></span></p><p id="f958000c-c065-441e-9fa6-3151b0bdfc89" class="">Su programa deberá recibir dos strings como argumento y luego deberá leer el archivo Datos A.txt y deberá generar un archivo DatosB.txt cambiando todas las ocurrrencias del string 1 por el string2.</p><p id="4ee61467-98d6-4aa4-89a1-b27c8249f727" class=""><span style="border-bottom:0.05em solid"><strong>Tema 18:</strong></span></p><p id="b95480b1-c9e4-48a5-aefd-bd99d6b65d6a" class=""><mark class="highlight-orange"><span style="border-bottom:0.05em solid"><strong>Leer 5 números de 5 cifras cada uno de archivo A y otros 5 de archivo B y dejar la intersección en un archivo C.</strong></span></mark></p><p id="029a4f59-7d10-42fa-b5fe-9afcd00c40e9" class=""><span style="border-bottom:0.05em solid"><strong>Tema 19:</strong></span></p><p id="22d1702a-27e5-4e81-8939-70926d188286" class="">Su programa deberá leer de un archivo una expresión algebraica compuesta por 5 números naturales separados por signos de suma o resta . La expresión finalizara por el signo =</p><p id="5b76154f-a189-4c30-a5d8-2252761da9c8" class="">El programa deberá calcular la expresión y desplegar su resultado por salida estándard.</p><p id="3980cbd9-3856-4f05-a919-db393405c98b" class=""><span style="border-bottom:0.05em solid"><strong>Tema 2</strong></span><span style="border-bottom:0.05em solid"><strong> (igual 18)</strong></span><span style="border-bottom:0.05em solid"><strong>:</strong></span></p><p id="f63bcd3f-8467-4c2c-9cdc-18b69d0e2a4e" class="">Su programa deberá leer dos archivos DatosA.txt y DatosB.txt que contendrán una serie de números de legajo ordenados de menor a mayor en 5 posiciones numericas separados por blancos . El programa deberá generar un archivo Datos C.txt que contenga los números comunes a ambos archivos o sea deberá darnos la intersección de DatosA.txt y DatosB.txt</p><p id="222430c5-c701-4692-a43c-522fb6763739" class=""><span style="border-bottom:0.05em solid"><strong>Tema 25:</strong></span></p><p id="5a4c2c77-1bed-4262-9a4e-603f183323af" class="">Dados “DatosA.txt” que contiene números de legajo separados por un espacio y “DatosB.txt” que contiene cierta información. Su programa debe dejar al final de DatosB.txt, el contenido de “DatosA.txt”.</p><p id="aba81198-d966-4aa2-88c5-cb6fee7741a8" class=""><span style="border-bottom:0.05em solid"><strong>Tema 28:</strong></span></p><p id="e9a53fd3-a9b0-429b-8e58-a8a34470537f" class=""><mark class="highlight-orange"><span style="border-bottom:0.05em solid"><strong>Su programa deberá leer un archivo DatosA.txt que deberá contener 800 bytes que representan 10 líneas de texto de 80 bytes cada una.</strong></span></mark></p><p id="b45756e0-67be-4a7b-8c23-d4ac964f9ea0" class="">El programa desplegará en pantalla las 10 líneas de texto y luego leerá del teclado un numero de línea y una nueva línea de 80 bytes que el programa usara para generar un nuevo archivo de datos.txt actualizando la línea ingresada desplegando las 10 nuevas líneas de este archivo.</p><p id="a2f76a3b-da30-439d-b1a3-1c51c8d04692" class=""><span style="border-bottom:0.05em solid"><strong>Tema 30:</strong></span></p><p id="1c26eff6-14cf-456e-9d92-b6c18a43f4de" class="">Hacer un programa que lea un archivo de texto con números separados por blancos. Mostrar por salida estándar el día y la hora, y por cada número leído esperar esa cantidad de segundos y volver a mostrar el día y la hora.</p><p id="72030ae9-0c17-4b1a-879a-b79b2c140b9a" class=""><span style="border-bottom:0.05em solid"><strong>Tema 4:</strong></span></p><p id="7b423e23-4446-44f6-a476-6c30ac8801e9" class="">Su programa deberá leer dos archivos DatosA.txt y Dato B.txt que contendrán una serie de números de legajo ordenados de menor a mayor en 5 posiciones numéricas separados por blancos . El programa deberá generar un archivo Datos C.txt que contenga los números incluidos en  DatosA.txt pero que no se encuentran en DatosB.txt o sea deberá darnos DatosA.txt  - DatosB.txt</p><p id="9a93ed92-7459-4923-8f1a-6962e1179e5f" class=""><span style="border-bottom:0.05em solid"><strong>Tema 7:</strong></span></p><p id="badadf88-a7ce-4e22-8343-0429e8bef10f" class="">Su programa deberá leer un archivo DatosA.txt que contendrá la serie de legajos de los alumnos que cursan Arqui como números de 5 digitos separados por blancos y se dispondrá de un archivo B que contiene los números de legajo y nombre de todos los alumnos de ITBA donde el número de legajo está en 5 dígitos numéricos y el nombre completo en un string alfabético de 40 posiciones. Cada campo separado del anterior por blancos. Ambos archivos están desordenados. El programa debera desplegar los nombres de los alumnos que cursan Arqui.</p><p id="677cd0c6-9412-40ad-88af-21b0fcc262be" class=""><span style="border-bottom:0.05em solid"><strong>Tema 9:</strong></span></p><p id="35da3e6d-5b71-4bcb-a8df-1ab8883f705f" class="">Su programa deberá leer dos archivos DatosA.txt y Dato B.txt que contendrán una serie de números de legajo desordenados</p><p id="4ee5b2fc-cf02-47f1-ac35-625bbd413a62" class="">El programa deberá generar un archivo Datos C.tx que contenga intercalados los números de los archivos datosA.txt y datos B.txt</p></details></li></ul><p id="7d2b6ae1-808e-4c88-84e9-b9df93e7f5cb" class="">
+</p><h3 id="452773aa-e28f-40e5-8535-59e7b1fdaeed" class="">Tema 1 (lo hicimos pero no lo chequee con la nueva lib):</h3><ul id="476b1756-8d7b-45af-800e-b822e43e041b" class="toggle"><li><details open=""><summary>Su programa deberá leer de un archivo una expresión algebraica compuesta por 5 números naturales separados por signos de suma o resta . La expresión finalizara por el signo =. El programa deberá calcular la expresión y desplegar su resultado por salida estándard.</summary><pre id="c7dfb635-b320-4a4f-b65c-09ad86354175" class="code"><code>int main(int argc, char *argv[]) {
+
+  int fd = sys_open(argv[1],_O_RDWR, 0);
+	printf(&quot;%d\n&quot;, fd);
+	if(fd &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo abrir el archivo \n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fd);
+	}
+
+  int resultado = 0;
+  int num = 0;
+  int suma = 1;
+  char c;
+
+  while( (c = _getchar(fd)) != &#x27;=&#x27;){
+
+      if(c &gt;= &#x27;0&#x27; &amp;&amp; c &lt;= &#x27;9&#x27;){
+          num = 10 * num + c - &#x27;0&#x27;;
+      }
+
+      else if(c == &#x27;-&#x27;){
+          if(suma){
+            resultado+= num;
+          }else{
+            resultado-= num;
+          }
+          suma = 0;
+          num = 0;
+      }
+
+      else if( c == &#x27;+&#x27;){
+        if(suma){
+          resultado+= num;
+        }else{
+          resultado-= num;
+        }
+        suma = 1;
+        num = 0;
+      }
+  }
+
+  if(suma){
+    resultado+= num;
+  }else{
+    resultado-= num;
+  }
+
+
+  // Calculamos la cantidad de caracteres del numero
+  int lg = num_length(resultado);
+
+  // Dejamos lugar extra para agregar un \n y el signo -
+  char char_num[lg+2];
+
+  num_to_str(char_num,lg,resultado);
+
+  char_num[lg+1] = 10;
+
+  sys_write(STDOUT, char_num, lg+2);
+
+	return 0;
+}</code></pre></details></li></ul><p id="c895ae8e-9e2d-48dd-baf6-a59c5deffbd3" class="">
+</p><h3 id="b25e756f-b60b-41b6-8880-f6037b31b722" class="">Tema 7:</h3><ul id="418e2571-dafe-42e5-8d7f-7d993070dfe3" class="toggle"><li><details open=""><summary>Su programa deberá leer un archivo DatosA.txt que contendrá la serie de legajos de los alumnos que cursan Arqui como números de 5 digitos separados por blancos y se dispondrá de un archivo B que contiene los números de legajo y nombre de todos los alumnos de ITBA donde el número de legajo está en 5 dígitos numéricos y el nombre completo en un string alfabético de 40 posiciones. Cada campo separado del anterior por blancos. Ambos archivos están desordenados. El programa debera desplegar los nombres de los alumnos que cursan Arqui.</summary><pre id="f78bda72-74d5-4170-be38-5b17e1cd149e" class="code"><code>#define GCERR -2               // Error del getchar
+#define EOF -1                 // End of file
+#define STDIN  0               // FD Standard input
+#define STDOUT 1               // FD Standard output
+#define STDERR 2               // FD Standard error
+
+// flags para sys_open
+#define _O_RDONLY 0x0000       // Read only
+
+#define IS_NUM(c)  ((c) &gt;= &#x27;0&#x27; &amp;&amp; (c)&lt;=&#x27;9&#x27;)
+#define IS_DIGIT(c) (((c) &gt;= &#x27;a&#x27; &amp;&amp; (c)&lt;=&#x27;z&#x27;) || ((c) &gt;= &#x27;A&#x27; &amp;&amp; (c)&lt;=&#x27;Z&#x27;))
+
+extern int sys_write(int fd, void *buffer, int size);
+extern int sys_exit(int error);
+extern int sys_read(int fd, void *buf, int count);
+extern int sys_open(const char *pathname, int flags, int mode);
+extern int sys_close(int fd);
+
+int _getchar(int fd);
+int _strlen(const char * str);
+void print_num(int num, int fd);
+void search_and_print_name(char * legajo);
+
+
+int main(int argc, char *argv[]) {
+
+  int fdA = sys_open(&quot;DatosA.txt&quot;,_O_RDONLY, 0);
+	if(fdA &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo abrir el archivo A\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fdA);
+	}
+
+
+  char legajo[5];
+  int inLeg = 0;
+  int c;
+
+  while( (c =_getchar(fdA)) &gt; 0 ){
+      if(inLeg &lt; 5 &amp;&amp; c &gt;= &#x27;0&#x27; &amp;&amp; c &lt;= &#x27;9&#x27;){
+           legajo[inLeg++] = c;
+      }else{
+        if(inLeg){
+           search_and_print_name(legajo);
+        }
+        inLeg = 0;
+      }
+  }
+
+
+  if(sys_close(fdA)&lt;0){
+    char errmsg[] = &quot;Error al cerrar el archivo A, puede que sus datos no se guarden correctamente \n&quot;;
+    sys_write(STDERR, errmsg , _strlen(errmsg));
+  }
+
+
+  return 0;
+}
+
+void search_and_print_name(char * legajo){
+
+  int fdB = sys_open(&quot;DatosB.txt&quot;,_O_RDONLY, 0);
+  if(fdB &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo abrir el archivo B\n&quot;;
+    sys_write(STDERR, errmsg , _strlen(errmsg));
+    sys_exit(fdB);
+  }
+
+    int matches = 0;
+    int found = 0;
+    int c;
+
+    while(!found &amp;&amp; (c =_getchar(fdB)) &gt; 0 ){
+        if(c==legajo[matches]){
+           matches++;
+        }
+        if(matches == 5){
+          found = 1;
+        }
+    }
+
+    if(!found){
+      char msg[] = &quot;No se ha encotrado al alumno de legajo: &quot;;
+      sys_write(STDERR, msg , _strlen(msg));
+      sys_write(STDERR, legajo , 5);
+      sys_write(STDERR, &quot;\n&quot; , 1);
+    }
+    else{
+      char name[40];
+      int nameIdx = 0;
+      while((c =_getchar(fdB)) &gt; 0 &amp;&amp; !IS_DIGIT(c));
+      name[nameIdx++] = c;
+      while((c =_getchar(fdB)) &gt; 0 &amp;&amp; nameIdx &lt; 40 &amp;&amp; !IS_NUM(c)){
+          name[nameIdx++] = c;
+      }
+      sys_write(STDERR, name , nameIdx);
+      sys_write(STDERR, &quot;\n&quot; , 1);
+    }
+
+    if(sys_close(fdB)&lt;0){
+      char errmsg[] = &quot;Error al cerrar el archivo B, puede que sus datos no se guarden correctamente \n&quot;;
+      sys_write(STDERR, errmsg , _strlen(errmsg));
+    }
+
+
+}
+
+
+/***
+* Funcion que retorna la longitud de un string.
+
+* Argumento:
+* - const char * str:  puntero a la direccion de memoria donde se encuentra el string.
+*
+* Retorno:
+* - La longitud del string.
+***/
+int _strlen(const char * str){
+    int i=0;
+    while( *(str + (i++)) );
+    return i-1;
+}
+
+/***
+* Funcion que lee un unico caracter de un file descriptor especifico.
+*
+* Argumento:
+*  - int fd: file descriptor del que se quiere leer el caracter.
+*
+* Retorno:
+*  - En caso de error al leer el caracter, devuelve -2 (GCERR).
+*  - Si se termina el archivo devuelve -1 (EOF).
+*  - Sino, devuelve el caracter leido.
+*********** Usa sys_read y las constantes GCERR EOF *********************+
+***/
+int _getchar(int fd) {
+		char c;
+    int returnval = sys_read(fd, &amp;c, 1);
+
+    if ( returnval == 1)
+				return c;
+
+    if( returnval &lt; 0 )
+				return GCERR;
+
+		return EOF;
+}</code></pre></details></li></ul><p id="dc723f79-79ca-4b9e-b3dc-ff3adeee2dd6" class="">
+</p><h3 id="1ddd09a7-39e5-4606-9a55-6285ba2774f0" class="">Tema 9 (lo hicimos pero no lo chequee con la nueva lib):</h3><ul id="af985df3-9c53-43ed-a0a0-344b8f5c8e43" class="toggle"><li><details open=""><summary>Su programa deberá leer dos archivos DatosA.txt y Dato B.txt que contendrán una serie de números de legajo desordenados. El programa deberá generar un archivo Datos C.tx que contenga intercalados los números de los archivos datosA.txt y datos B.txt</summary><pre id="7c7677f9-6d7b-489f-98f4-70357c280c61" class="code"><code>int main(int argc, char *argv[]) {
+  int fdA = sys_open(&quot;A.txt&quot;,_O_RDWR, 0);
+	if(fdA &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo abrir el archivo A\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fdA);
+	}
+
+  int fdB = sys_open(&quot;B.txt&quot;,_O_RDWR, 0);
+	if(fdB &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo abrir el archivo B\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fdB);
+	}
+
+  int fdC = sys_open(&quot;C.txt&quot;,_O_RDWR|_O_CREAT, S_IRWX);
+	if(fdC &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo crear el archivo C\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fdC);
+	}
+
+  int afin = 0;
+  int bfin = 0;
+  int c;
+
+  while(!afin &amp;&amp; !bfin){
+      while( !afin &amp;&amp; (((c=_getchar(fdA))&gt;= &#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;) || c==EOF)){
+        if(c==EOF){
+          afin = 1;
+        }else{
+          sys_write(fdC, &amp;c , 1);
+        }
+      }
+      sys_write(fdC, &quot; &quot; , 1);
+
+      while( !bfin &amp;&amp; (((c=_getchar(fdB))&gt;= &#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;) || c==EOF)){
+        if(c==EOF){
+          bfin = 1;
+        }else{
+          sys_write(fdC, &amp;c , 1);
+        }
+      }
+      sys_write(fdC, &quot; &quot; , 1);
+  }
+
+  if(!afin){
+      while((c=_getchar(fdA))!=EOF){
+          sys_write(fdC, &amp;c , 1);
+      }
+  }
+  else if(!bfin){
+      while((c=_getchar(fdB))!=EOF){
+          sys_write(fdC, &amp;c , 1);
+      }
+  }
+
+  return 0;
+}</code></pre></details></li></ul><p id="2f44d2db-4b4a-4d44-a4fe-516eb2ea9c14" class="">
+</p><h3 id="5fc63a4c-4941-4f35-a51f-3c11e522f9d3" class="">Tema 15 :</h3><ul id="5527b9a8-481a-4ee9-8c02-f66921dbd3a3" class="toggle"><li><details open=""><summary>Su programa deberá leer dos archivos DatosA.txt y Dato B.txt que contendrán una serie de números de legajo desordenados. El programa deberá generar un archivo Datos C.tx que contenga intercalados los números de los archivos datosA.txt y datos B.txt</summary><pre id="95bcadce-60e0-4d48-8619-7cb3ad140ddf" class="code"><code>#define CLOCK_REALTIME 0
+
+#define GCERR -2               // Error del getchar
+#define EOF -1                 // End of file
+#define STDIN  0               // FD Standard input
+#define STDOUT 1               // FD Standard output
+#define STDERR 2               // FD Standard error
+
+// flags para sys_open
+#define _O_RDONLY 0x0000       // Read only
+#define _O_WRONLY 0x0001       // Write only
+#define _O_RDWR   0x0002
+
+typedef struct timespec {
+    long     sec;        /* seconds */
+    long     nsec;       /* nanoseconds */
+}timest;
+
+extern int sys_open(const char *pathname, int flags, int mode);
+extern int sys_write(int fd, void *buffer, int size);
+extern int sys_exit(int error);
+extern int sys_close(int fd);
+extern int sys_read(int fd, void *buf, int count);
+extern int sys_clock_gettime(int clockid, struct timespec * tp);
+
+int _strlen(const char * str);
+int _getchar(int fd);
+void print_num(long long num, int fd);
+
+
+
+int main(int argc, char *argv[]) {
+
+  /*********************Start timer*************************/
+  timest start;
+	timest end;
+	int timeerror = 0;
+  timeerror = sys_clock_gettime(CLOCK_REALTIME, &amp;start);
+  if(timeerror &lt; 0){
+    char errmsg[] = &quot;Error con el contador de tiempo \n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(timeerror);
+	}
+
+  /*********************Open file*************************/
+  int fd = sys_open(&quot;DataA.txt&quot;,_O_RDONLY, 0);
+	if(fd &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo abrir el archivo \n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fd);
+	}
+
+  /*********************Proces data*************************/
+  long long resultado = 0;
+  int num = 0;
+  int neg = 0;
+  char c;
+
+  while( (c = _getchar(fd)) &gt; 0){
+
+      if(c &gt;= &#x27;0&#x27; &amp;&amp; c &lt;= &#x27;9&#x27;){
+          num = 10 * num + c - &#x27;0&#x27;;
+      }
+      else if(c == &#x27;-&#x27;){
+        neg = 1;
+      }
+
+      else{
+          if(neg){
+            resultado-=num;
+          }
+          else{
+            resultado+= num;
+          }
+          num = 0;
+          neg = 0;
+      }
+  }
+
+  if(c==GCERR){
+    char errmsg[] = &quot;Error al leer el archivo \n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(GCERR);
+  }
+
+  if(num!=0){
+    resultado+=num;
+  }
+
+
+  char * msg = &quot;La suma de los 10000 numeros es: &quot;;
+  sys_write(STDOUT, msg, _strlen(msg));
+
+  print_num(resultado, STDOUT);
+
+  /*********************Stop timer*************************/
+  timeerror = sys_clock_gettime(CLOCK_REALTIME, &amp;end);
+  if(!timeerror){
+    msg = &quot;\nEl tiempo que llevo realizar el calculo fue: &quot;;
+    sys_write(STDOUT, msg, _strlen(msg));
+    print_num(end.sec - start.sec, STDOUT);
+    sys_write(STDOUT, &quot;s &quot;, 2);
+    print_num( end.nsec - start.nsec, STDOUT);
+    sys_write(STDOUT, &quot;ns \n&quot;, 4);
+  }else{
+    msg = &quot;No fue posible calcular el tiempo total de la ejecucion \n&quot;;
+    sys_write(STDOUT, msg, _strlen(msg));
+  }
+
+
+		return 0;
+}
+
+/***
+* Funcion que retorna la longitud de un string.
+
+* Argumento:
+* - const char * str:  puntero a la direccion de memoria donde se encuentra el string.
+*
+* Retorno:
+* - La longitud del string.
+***/
+int _strlen(const char * str){
+    int i=0;
+    while( *(str + (i++)) );
+    return i-1;
+}
+
+/***
+* Funcion que lee un unico caracter de un file descriptor especifico.
+*
+* Argumento:
+*  - int fd: file descriptor del que se quiere leer el caracter.
+*
+* Retorno:
+*  - En caso de error al leer el caracter, devuelve -2 (GCERR).
+*  - Si se termina el archivo devuelve -1 (EOF).
+*  - Sino, devuelve el caracter leido.
+
+***/
+int _getchar(int fd) {
+		char c;
+    int returnval = sys_read(fd, &amp;c, 1);
+
+    if ( returnval == 1)
+				return c;
+
+    if( returnval &lt; 0 )
+				return GCERR;
+
+		return EOF;
+}
+
+/***
+ * Funcion que calcula la cantidad de digitos de un entero.
+ *
+ * Argumento:
+ * - int num: El numero al que se le calculara la cantidad de digitos.
+ *
+ * Retorno:
+ * - La cantidad de digitos del numero.
+ ***/
+int num_length(int num){
+
+    if(num &lt; 0){
+      num*=-1;
+    }
+
+    int length = 0;
+    while(num){
+        length++;
+        num/=10;
+    }
+    return length;
+}
+
+/***
+ * Funcion que transforma un entero a un string.
+ *
+ * Argumentos:
+ * - char * char_num: Puntero a la zona de memoria donde se dejara el string.
+ * - int digits: La cantidad de digitos del numero.
+ * - int num: Entero a transformar en string.
+ ***/
+void num_to_str(char * char_num, int digits, int num){
+    if(num &lt; 0){
+      num*=-1;
+    }
+
+    for(int i=digits-1 ; i&gt;=0 ; --i){
+      char_num[i] = num%10 + &#x27;0&#x27;;
+      num/=10;
+    }
+}
+
+/***
+* Funcion que imprime en fd, num.
+*
+* Argumento:
+*  - long long num: entero a imprimir en el file descriptor.
+*  - int fd: file descriptor a escribir.******************
+***/
+void print_num(long long num, int fd){
+
+  if(num==0){
+    sys_write(fd, &quot;0&quot;, 1);
+    return;
+  }
+
+  int lg = num_length(num);
+
+  char char_num[lg];
+
+  num_to_str(char_num,lg,num);
+
+  if(num&lt;0){
+    sys_write(fd, &quot;-&quot;, 1);
+  }
+  sys_write(fd, char_num, lg);
+}</code></pre><p id="fcccc6e5-9911-4b69-b014-b090eb99834d" class="">
+</p></details></li></ul><h3 id="620a2330-dff0-4cfa-ac18-375bd6445838" class="">Tema 16:</h3><ul id="9cd15a9c-86c8-407e-8f64-569f99f02b2e" class="toggle"><li><details open=""><summary>Su programa deberá recibir dos strings como argumento y luego deberá leer el archivo Datos A.txt y deberá generar un archivo DatosB.txt cambiando todas las ocurrrencias del string 1 por el string2.</summary><pre id="9e871f24-e5b9-4f96-aee7-5e819718acae" class="code"><code>#define GCERR -2               // Error del getchar
+#define EOF -1                 // End of file
+#define STDIN  0               // FD Standard input
+#define STDOUT 1               // FD Standard output
+#define STDERR 2               // FD Standard error
+
+// flags para sys_open
+#define _O_RDONLY 0x0000       // Read only
+#define _O_WRONLY 0x0001       // Write only
+#define _O_RDWR   0x0002       // Read &amp; Write
+#define _O_CREAT  0x0040       // Create
+
+// flags de permisos sys_open
+#define S_IXUSR 00100          // owner, execute permission
+#define S_IWUSR 00200          // owner, write permission
+#define S_IRUSR 00400          // owner, read permission
+#define S_IRWX  00700          // owner, read, write, execute permission
+
+
+
+extern int sys_write(int fd, void *buffer, int size);
+extern int sys_exit(int error);
+extern int sys_read(int fd, void *buf, int count);
+extern int sys_open(const char *pathname, int flags, int mode);
+extern int sys_close(int fd);
+
+int _getchar(int fd);
+int _strlen(const char * str);
+void replace(char * buffer,char * new, int longitud, int fdA, int fdB);
+
+int main(int argc, char * argv[]) {
+
+  int fdA = sys_open(&quot;DatosA.txt&quot;,_O_RDONLY, 0);
+	if(fdA &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo abrir el archivo A\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fdA);
+	}
+
+  int fdB = sys_open(&quot;DatosB.txt&quot;,_O_RDWR|_O_CREAT, S_IRWX);
+	if(fdB &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo abrir el archivo A\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fdB);
+	}
+
+  char * s1 = argv[1];
+  char * s2 = argv[2];
+
+  replace(s1, s2, _strlen(s1) , fdA, fdB);
+
+  if(sys_close(fdA)&lt;0){
+    char errmsg[] = &quot;Error al cerrar el archivo A, puede que sus datos no se guarden correctamente \n&quot;;
+    sys_write(STDERR, errmsg , _strlen(errmsg));
+  }
+
+  if(sys_close(fdB)&lt;0){
+    char errmsg[] = &quot;Error al cerrar el archivo A, puede que sus datos no se guarden correctamente \n&quot;;
+    sys_write(STDERR, errmsg , _strlen(errmsg));
+  }
+
+  return 0;
+}
+
+void nextComputation(char * buffer,char * next){
+  next[0] = 0;
+  int border = 0;
+  for (int rec = 1; buffer[rec]; rec++) {
+           while ((border &gt; 0) &amp;&amp; (buffer[border] != buffer[rec]))
+               border = next[border - 1];
+           if (buffer[border] == buffer[rec])
+               border++;
+           next[rec] = border;
+       }
+}
+
+
+void replace(char * buffer,char * new, int longitud, int fdA, int fdB){
+
+  char next[longitud];
+  nextComputation(buffer,next);
+
+    int c;
+    int finish = ((c =_getchar(fdA)) == EOF);
+    int pbuff = 0;
+
+    while (!finish){
+          if(c == buffer[pbuff]){
+              finish = ((c =_getchar(fdA)) == EOF);
+              pbuff++;
+              if(pbuff == longitud){
+                   sys_write(fdB, new, _strlen(new));
+                   pbuff = 0;
+              }
+          }
+          else if(pbuff!=0){
+
+              sys_write(fdB, buffer, pbuff-next[pbuff-1]);
+              pbuff = next[pbuff-1];
+          }
+          else{
+              sys_write(fdB, &amp;c, 1);
+              finish = ((c =_getchar(fdA)) == EOF);
+          }
+      }
+
+      if(pbuff!=0){
+          sys_write(fdB, buffer, pbuff);
+      }
+
+}
+
+
+
+/***
+* Funcion que retorna la longitud de un string.
+
+* Argumento:
+* - const char * str:  puntero a la direccion de memoria donde se encuentra el string.
+*
+* Retorno:
+* - La longitud del string.
+***/
+int _strlen(const char * str){
+    int i=0;
+    while( *(str + (i++)) );
+    return i-1;
+}
+
+/***
+* Funcion que lee un unico caracter de un file descriptor especifico.
+*
+* Argumento:
+*  - int fd: file descriptor del que se quiere leer el caracter.
+*
+* Retorno:
+*  - En caso de error al leer el caracter, devuelve -2 (GCERR).
+*  - Si se termina el archivo devuelve -1 (EOF).
+*  - Sino, devuelve el caracter leido.
+*********** Usa sys_read y las constantes GCERR EOF *********************+
+***/
+int _getchar(int fd) {
+		char c;
+    int returnval = sys_read(fd, &amp;c, 1);
+
+    if ( returnval == 1)
+				return c;
+
+    if( returnval &lt; 0 )
+				return GCERR;
+
+		return EOF;
+}</code></pre></details></li></ul><h3 id="dd0ea14e-c8bc-4a8b-9b39-ee169c7c2841" class="">Tema 30:</h3><ul id="2b76ce2a-5eb1-4c3b-8b8d-6ca9fcbc1d41" class="toggle"><li><details open=""><summary>Hacer un programa que lea un archivo de texto con números separados por blancos. Mostrar por salida estándar el día y la hora, y por cada número leído esperar esa cantidad de segundos y volver a mostrar el día y la hora.</summary><pre id="ef0e30fc-c370-4310-acd5-0e9a0723253f" class="code"><code>#define GCERR -2               // Error del getchar
+#define EOF -1                 // End of file
+#define STDIN  0               // FD Standard input
+#define STDOUT 1               // FD Standard output
+#define STDERR 2               // FD Standard error
+
+#define _O_RDONLY 0x0000       // Read only
+#define _O_WRONLY 0x0001       // Write only
+#define _O_RDWR   0x0002       // Read &amp; Write
+
+#define UTC -3
+#define SECS_DAY (60*60*24)
+
+extern int sys_write(int fd, void *buffer, int size);
+extern int sys_exit(int error);
+extern long sys_gettime(long * tloc);
+extern int sys_open(const char *pathname, int flags, int mode);
+extern int sys_close(int fd);
+extern int sys_read(int fd, void *buf, int count);
+
+void print_hour(long time);
+void print_date(long time);
+int _getchar(int fd);
+int _strlen(const char * str);
+
+typedef struct timespec {
+    long     sec;        /* seconds */
+    long     nsec;       /* nanoseconds */
+}timest;
+extern int nanosleep(const struct timespec *req, struct timespec *rem);
+
+int main(int argc, char *argv[]) {
+
+
+  int fd = sys_open(&quot;A.txt&quot;,_O_RDONLY, 0);
+	if(fd &lt; 0){
+    char errmsg[] = &quot;Error, no se pudo abrir el archivo A\n&quot;;
+		sys_write(STDERR, errmsg , _strlen(errmsg));
+		sys_exit(fd);
+	}
+
+  int c;
+  long time;
+  int sleepsegs = 0;
+  int inNum = 0;
+  int hourPrinted = 0;
+  timest t = {0,0};
+  while( (c=_getchar(fd)) &gt; 0){
+
+    if(!inNum &amp;&amp; !hourPrinted){
+      t.sec = sleepsegs;
+      if(nanosleep(&amp;t,0)&lt;0){
+        char errmsg[] = &quot;Error al intentar intentar detener el programa\n&quot;;
+    		sys_write(STDERR, errmsg , _strlen(errmsg));
+    		sys_exit(-1);
+      }
+      if(sys_gettime(&amp;time) &lt; 0){
+        char errmsg[] = &quot;Error al intentar obtener la fecha del sistema\n&quot;;
+        sys_write(STDERR, errmsg , _strlen(errmsg));
+        sys_exit(-1);
+      }
+      time += UTC * 3600;
+      print_hour(time);
+      print_date(time);
+      hourPrinted = 1;
+      sleepsegs = 0;
+    }
+
+    if( c &gt;= &#x27;0&#x27; &amp;&amp; c &lt;= &#x27;9&#x27; ){
+      inNum = 1;
+      hourPrinted = 0;
+      sleepsegs = sleepsegs * 10 + c - &#x27;0&#x27;;
+    }
+
+    else{
+      inNum = 0;
+    }
+  }
+
+  if(c==GCERR){
+    char errmsg[] = &quot;Error al leer el archivo A.txt\n&quot;;
+    sys_write(STDERR, errmsg , _strlen(errmsg));
+    sys_exit(GCERR);
+  }
+
+  if(!hourPrinted){
+    t.sec = sleepsegs;
+
+    if(nanosleep(&amp;t,0)&lt;0){
+      char errmsg[] = &quot;Error al intentar intentar detener el programa\n&quot;;
+      sys_write(STDERR, errmsg , _strlen(errmsg));
+      sys_exit(-1);
+    }
+
+    if(sys_gettime(&amp;time) &lt; 0){
+      char errmsg[] = &quot;Error al intentar obtener la fecha del sistema\n&quot;;
+      sys_write(STDERR, errmsg , _strlen(errmsg));
+      sys_exit(-1);
+    }
+    time += UTC * 3600;
+    print_hour(time);
+    print_date(time);
+    hourPrinted = 1;
+  }
+
+  if(sys_close(fd)){
+    char errmsg[] = &quot;Error al cerrar el archivo, puede que sus datos no se guarden correctamente \n&quot;;
+    sys_write(STDERR, errmsg , _strlen(errmsg));
+  }
+
+  return 0;
+}
+
+/***
+* Funcion que calcula la hora actual del sistema.
+*
+* Argumento:
+* - long time: cantidad de segundos transcurridos desde EPOCH.
+*
+***/
+
+void print_hour(long time){
+
+    int t = time%SECS_DAY;
+    char hour[] = {&#x27;0&#x27;,&#x27;0&#x27;,&#x27;:&#x27;,&#x27;0&#x27;,&#x27;0&#x27;,&#x27;:&#x27;,&#x27;0&#x27;,&#x27;0&#x27;};
+
+    int seg = t%60;
+    int min = (t%3600)/60;
+    int h = t/3600;
+
+    hour[0] += h/10;
+    hour[1] += h%10;
+    hour[3] += min/10;
+    hour[4] += min%10;
+    hour[6] += seg/10;
+    hour[7] += seg%10;
+
+    sys_write(STDOUT, &quot;hora: &quot;, 6);
+    sys_write(STDOUT, hour, 8);
+    sys_write(STDOUT, &quot;\n&quot;, 1);
+}
+
+/***
+* Funcion que chequea si un año es bisiesto.
+*
+* Argumento:
+* - int year: numero entero que representa el año a analizar.
+*
+* Retorno:
+* - 1 si el año recibido es bisiesto, o 0 si no.
+***/
+
+int leapYear(int year){
+  if (year % 400 == 0) {
+    return 1;
+ }
+ else if (year % 100 == 0) {
+    return 0;
+ }
+
+ else if (year % 4 == 0) {
+    return 1;
+ }
+  return 0;
+}
+
+/***
+  *  Funcion que imprime en pantalla la fecha actual.
+  *
+  *  Argumento:
+  *  - long time: cantidad de segundos transcurridos desde EPOCH.
+  *
+***/
+
+void print_date(long time){
+
+    // Cantidad de dias de cada mes.
+    // La primera fila es para no anos bisiesotos
+    // y la segunda para anos bisiestos
+    int mdays[2][12] = {{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
+                        {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}};
+
+    // String con el formato a imprimir
+    char date[] = {&#x27;0&#x27;,&#x27;0&#x27;,&#x27;/&#x27;,&#x27;0&#x27;,&#x27;0&#x27;,&#x27;/&#x27;,&#x27;0&#x27;,&#x27;0&#x27;,&#x27;0&#x27;,&#x27;0&#x27;};
+
+    // Cantidad de dias desde epoch
+    int t = time/(SECS_DAY) + 1;
+
+    int year = 1970;
+    int month = 1;
+
+    while( t &gt;= (365 + leapYear(year)) ){
+        t -= 365 + leapYear(year);
+        year++;
+    }
+
+    int leap = leapYear(year);
+    while( t &gt;= mdays[leap][month-1] ){
+        t -= mdays[leap][month-1];
+        month++;
+    }
+
+    // Completamos el string de fecha
+    date[0]+= t/10;
+    date[1]+= t%10;
+    date[3]+= month/10;
+    date[4]+= month%10;
+    date[6]+= year/1000;
+    date[7]+= (year%1000)/100;
+    date[8]+= (year%100)/10;
+    date[9]+= year%10;
+
+    sys_write(STDOUT, &quot;fecha: &quot;, 7);
+    sys_write(STDOUT, date, 10);
+    sys_write(STDOUT, &quot;\n&quot;, 1);
+}
+
+/***
+* Funcion que retorna la longitud de un string.
+
+* Argumento:
+* - const char * str:  puntero a la direccion de memoria donde se encuentra el string.
+*
+* Retorno:
+* - La longitud del string.
+***/
+int _strlen(const char * str){
+    int i=0;
+    while( *(str + (i++)) );
+    return i-1;
+}
+
+/***
+* Funcion que lee un unico caracter de un file descriptor especifico.
+*
+* Argumento:
+*  - int fd: file descriptor del que se quiere leer el caracter.
+*
+* Retorno:
+*  - En caso de error al leer el caracter, devuelve -2 (GCERR).
+*  - Si se termina el archivo devuelve -1 (EOF).
+*  - Sino, devuelve el caracter leido.
+*********** Usa sys_read y las constantes GCERR EOF *********************+
+***/
+int _getchar(int fd) {
+		char c;
+    int returnval = sys_read(fd, &amp;c, 1);
+
+    if ( returnval == 1)
+				return c;
+
+    if( returnval &lt; 0 )
+				return GCERR;
+
+		return EOF;
+}</code></pre></details></li></ul><p id="fa922b09-4814-4a9b-a811-e07013c34ac2" class="">
+</p><h1 id="8aead1ce-ee70-42d7-833c-992a1b7c858e" class="">Vaciar Buffer</h1><pre id="417da09d-e5dd-4e58-9050-b3442274a194" class="code"><code>if(c!=&#x27;\n&#x27; &amp;&amp; c &gt; 0)
+    while((c=_getchar(STDIN))!=&#x27;\n&#x27;);</code></pre><h1 id="9994556b-7b1f-4fa5-8816-084213c41432" class="">Ordenar</h1><pre id="66b2ef3c-e8d0-4b2d-a3f3-4b2e331067e6" class="code"><code>for(int i=0 ; i&lt;10 ; ++i){
+    int min = i;  // indice del minimo valor
+    for (int j=i+1 ; j&lt;10 ; ++j){
+        if(vec[j] &lt; vec[min]){
+           min = j;
+        }
+    }
+    if(min!=i){
+      int aux = vec[min];
+      vec[min]= vec[i];
+      vec[i] = aux;
+    }
+  }</code></pre><p id="ead7974b-636e-45a6-a924-4a987e20ef7b" class="">
+</p><h1 id="a6189dff-c0d4-4c61-a7e0-779aafc6273f" class="">Cerrar archivo</h1><pre id="ff8e28a7-c92b-4592-91b0-f08cf7a5e10d" class="code"><code>if(sys_close(fd)){
+    char errmsg[] = &quot;Error al cerrar el archivo, puede que sus datos no se guarden correctamente \n&quot;;
+    sys_write(STDERR, errmsg , _strlen(errmsg));
+ </code></pre><p id="48ec6c9a-8e3e-4c7a-912b-7cc10a30de56" class="">
+</p><h1 id="2424ad94-53d1-4188-b717-7551b38cbab3" class="">Leer X números ingresados por el usuario</h1><pre id="75898d6d-07da-4e23-a4c7-efdf903e1a4b" class="code"><code>int c; 
+  int cantNum = 0;  //Contador de numeros, indice del vector
+  int vec[X];      // Arreglo para almacenar los 10 numeros ingresados
+  int num = 0;
+  int inNum = 0;    // Flag para indicar si estamos en un numero (por si hay mas de un caracter separador)
+  int neg = 0;      // 1 si el nro es negtivo, 2 si el proximo nro es negativo
+
+  while( (cantNum&lt;X) &amp;&amp; ((c=_getchar(STDIN)) &gt; 0) ){
+
+    if( c &gt;= &#x27;0&#x27; &amp;&amp; c &lt;= &#x27;9&#x27; ){
+      inNum = 1;
+      num = num * 10 + c - &#x27;0&#x27;;
+    }
+    else if(!inNum &amp;&amp; c == &#x27;-&#x27;){
+        neg = 1;
+    }
+    else if(inNum){
+      vec[cantNum++] = neg ? (num*-1) : num ;
+      num = inNum = neg = 0;
+    }
+    else{
+      neg = 0;
+    }
+  }
+
+  // Vaciamos el buffer en caso de que el usuario haya ingresado datos de mas
+  if(c!=&#x27;\n&#x27; &amp;&amp; c &gt; 0)
+    while((c=_getchar(STDIN))!=&#x27;\n&#x27;);
+
+
+  if(c==GCERR){
+    char errmsg[] = &quot;Se produjo un error al intentar leer los numeros\n&quot;;
+    sys_write(STDERR, errmsg , _strlen(errmsg));
+    sys_exit(GCERR);
+  }</code></pre><p id="afb7e558-857d-4805-8184-b2dd97a0ddb3" class="">
+</p><p id="c7403aa9-e74d-4962-ae88-d88e862aa00a" class="">
+</p></div></article></body></html>

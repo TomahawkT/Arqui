@@ -1,0 +1,2 @@
+leer por consola un string y pasarlo a toUpper (solo se puede usar strlen de la lib)
+recepcion de argumentos por ASM!

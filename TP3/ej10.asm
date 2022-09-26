@@ -1,18 +1,27 @@
+
+GLOBAL main
+EXTERN printf
 SECTION .text
-GLOBAL _start
-EXTERN print
-EXTERN exit
-_start:
+
+
+main:
+    push ebp
+    mov ebp,esp
     mov eax,0
     cpuid
-    mov [string], ebx
-    mov [string+4],edx
-    mov [string+8],ecx
-    mov [string+12],0
-    mov ebx,[string]
-    call print
-    call exit
+    push eax
+    push ecx
+    push edx
+    push ebx
+    push esp
+    push fmt
+    call printf
+    mov eax,0
+    mov esp,ebp
+    pop ebp
+    ret
+    
 
 
-SECTION .bss
-string resb 16
+SECTION .data
+fmt db "Fabricante: %s",10,0

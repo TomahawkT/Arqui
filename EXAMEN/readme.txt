@@ -1,0 +1,1 @@
+corer el script y  desp hacr ./main con los valores del array
