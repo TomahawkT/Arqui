@@ -4,6 +4,9 @@
 #include <moduleLoader.h>
 #include <naiveConsole.h>
 #include <videoDriver.h>
+#include <idtLoader.h>
+#include <interrupts.h>
+#include <time.h>
 
 extern uint8_t text;
 extern uint8_t rodata;
@@ -52,6 +55,7 @@ void * initializeKernelBinary()
 		sampleDataModuleAddress
 	};
 
+
 	loadModules(&endOfKernelBinary, moduleAddresses);
 	ncPrint("[Done]");
 	ncNewline();
@@ -74,6 +78,9 @@ void * initializeKernelBinary()
 	ncPrint("  bss: 0x");
 	ncPrintHex((uint64_t)&bss);
 	ncNewline();
+
+	ncPrint("Loading IDT");
+	load_idt();
 
 	ncPrint("[Done]");
 	ncNewline();
@@ -100,14 +107,23 @@ int main()
 	ncPrint((char*)sampleDataModuleAddress);
 	ncNewline();
 
+	_hlt();
 	ncPrintAttribute("Arquitectura de las Computadoras",0xF2);
 	ncNewline();
 
 	getTime();
 	ncNewline();
 
-	readInput();
-	ncNewline();
+	ncClear();
+	for (int i=0; i < 10; i++){
+		int start = seconds_elapsed();
+		while(seconds_elapsed() - start < 5){
+			_hlt();
+		}
+		ncPrint("Pasaron 5 segundos");
+		ncNewline();
+	}
+
 	
 	ncPrint("[Finished]");
 	return 0;

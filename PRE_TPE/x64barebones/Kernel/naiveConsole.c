@@ -8,12 +8,20 @@ static uint8_t * const video = (uint8_t*)0xB8000;
 static uint8_t * currentVideo = (uint8_t*)0xB8000;
 static const uint32_t width = 80;
 static const uint32_t height = 25 ;
+static const uint8_t charHexMap[256] = 
+    {       
+          0,    0,  '1',  '2',  '3',  '4',  '5',  '6',   '7',  '8',  '9',   '0',   '-',  '=',    0xF0,    '    ',
+        'Q',  'W',  'E',  'R',  'T',  'Y',  'U',  'I',   'O',  'P',  '[',   ']',  '\n',    0,     'A',       'S',
+        'D',  'F',  'G',  'H',  'J',  'K',  'L',  ';',  '\'',    0,    0,  '\\',   'Z',  'X',     'C',       'V',
+        'B',  'N',  'M',  ',',  '.',  '/',    0,  '*',     0,  ' ',    0,     0,     0,    0,       0,         0,
+    };
 
 uint8_t ** getCurrentVideo(){
 	return &currentVideo;
 }
 
 void readInput(){
+	
 	int i,teclahex,teclahexant;
 	ncNewline();
 	ncPrint("esperando tecla");
@@ -22,17 +30,15 @@ void readInput(){
 	ncNewline();
 	ncPrint("tecla Recibida");
 	ncNewline();
-	ncPrintHex (teclahex);
-	for (int j =1 ; j < 1000 ;j++){
+	ncPrintChar(charHexMap[teclahex]);
+	for (int j =1 ; j < 1000 && charHexMap[teclahex] != '\n' ;j++){
 		i=getKey();
 		teclahex=i;
-		if (teclahex != teclahexant){
-			ncPrintHex (teclahex);
-			teclahexant = teclahex;
+		if (teclahex != teclahexant && charHexMap[teclahex] != 0){
+			ncPrintChar(charHexMap[teclahex]);
 		}
-	
+		teclahexant = teclahex;
 	}
-	
 }
 
 void ncPrint(const char * string)
