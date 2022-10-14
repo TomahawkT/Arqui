@@ -115,14 +115,18 @@ int main()
 	ncNewline();
 
 	ncClear();
-	for (int i=0; i < 10; i++){
+	/*for (int i=0; i < 10; i++){
 		int start = seconds_elapsed();
 		while(seconds_elapsed() - start < 5){
 			_hlt();
 		}
 		ncPrint("Pasaron 5 segundos");
 		ncNewline();
+	} */
+	while (1){
+		_hlt();
 	}
+	
 
 	
 	ncPrint("[Finished]");
