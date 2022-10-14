@@ -15,6 +15,7 @@ extern uint8_t bss;
 extern uint8_t endOfKernelBinary;
 extern uint8_t endOfKernel;
 
+
 static const uint64_t PageSize = 0x1000;
 
 static void * const sampleCodeModuleAddress = (void*)0x400000;
@@ -89,8 +90,8 @@ void * initializeKernelBinary()
 }
 
 int main()
-{	
-	ncPrint("[Kernel Main]");
+{	ncClear();
+	/*ncPrint("[Kernel Main]");
 	ncNewline();
 	ncPrint("  Sample code module at 0x");
 	ncPrintHex((uint64_t)sampleCodeModuleAddress);
@@ -113,8 +114,10 @@ int main()
 
 	getTime();
 	ncNewline();
+	*/
 
-	ncClear();
+	testASM(1,"SYSTEM CALL",0x0F);
+	testASM(2,"SYSTEM CALL",0x0F);
 	/*for (int i=0; i < 10; i++){
 		int start = seconds_elapsed();
 		while(seconds_elapsed() - start < 5){
@@ -123,11 +126,8 @@ int main()
 		ncPrint("Pasaron 5 segundos");
 		ncNewline();
 	} */
-	while (1){
-		_hlt();
-	}
 	
-
+	while(1);
 	
 	ncPrint("[Finished]");
 	return 0;

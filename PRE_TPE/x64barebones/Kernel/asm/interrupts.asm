@@ -12,6 +12,7 @@ GLOBAL _irq02Handler
 GLOBAL _irq03Handler
 GLOBAL _irq04Handler
 GLOBAL _irq05Handler
+GLOBAL _irq60Handler
 
 GLOBAL _exception0Handler
 
@@ -140,6 +141,20 @@ _irq05Handler:
 
 
 ;Zero Division Exception
+_irq60Handler:
+	pushState
+	mov rbp, rsp
+
+	mov rcx,rdx
+	mov rdx,rsi
+	mov rsi,rdi
+	mov rdi, 60h
+	call irqDispatcher
+
+	mov rsp,rbp
+	popState
+	iretq
+
 _exception0Handler:
 	exceptionHandler 0
 
@@ -147,8 +162,6 @@ haltcpu:
 	cli
 	hlt
 	ret
-
-
 
 SECTION .bss
 	aux resq 1
